@@ -1,0 +1,20 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Contact Section -->
+<section class="contact" id="contact">
+    <h2>Contact Me</h2>
+    <p>
+        Let's connect and grow together! Whether it’s a collaboration, friendship, or a project idea — feel free to reach out!
+    </p>
+    <ul>
+        <li>Email: <a href="mailto:johnreymart.viernes@gmail.com">johnreymart.viernes@gmail.com</a></li>
+        <li>Facebook: <a href="https://facebook.com/yourprofile" target="_blank">facebook.com/John Rey Mart </a></li>
+        <li>Location: Omod, Maninihon, Bayawan City</li>
+    </ul>
+    <a href="{% url 'form' %}" class="btn">Send a Message</a>
+</section>
+
+{% endblock %}

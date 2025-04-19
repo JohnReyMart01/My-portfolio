@@ -1,0 +1,47 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Projects Section -->
+<section class="projects" id="projects">
+    <div class="projects-header">
+        <h2>Projects</h2>
+        <p>I’ve worked on various school and personal projects, including:</p>
+    </div>
+
+    <div class="projects-grid">
+        <div class="project-item">
+            <img src="{% static 'main/images/pos.jpg' %}" alt="POS System" class="project-img">
+            <p> <strong>Restaurant POS System</strong> – Cloud sync, smart features, real-time data, and mobile-friendly design.</p>
+        </div>
+
+        <div class="project-item">
+            <img src="{% static 'main/images/graphics.jpg' %}" alt="Digital Illustration" class="project-img">
+            <p> <strong>Graphic Design</strong> – Event materials, branding assets, and creative artworks.</p>
+        </div>
+
+        <div class="project-item">
+            <img src="{% static 'main/images/ps.png' %}" alt="Photoshop Logo Design" class="project-img">
+            <p> <strong>Photoshop Logo Design</strong> – Designed creative logos using Adobe Photoshop.</p>
+        </div>
+
+        <div class="project-item">
+            <img src="{% static 'main/images/ja.jpg' %}" alt="Web Development" class="project-img">
+            <p> <strong>Web Development</strong> – Designed responsive websites with HTML, CSS, and JavaScript. Integrated backend with Django.</p>
+        </div>
+
+        <div class="project-item">
+            <img src="{% static 'main/images/java.jpg' %}" alt="Java" class="project-img">
+            <p> <strong>JavaScript Projects</strong> – Created interactive front-end features like modals, sliders, and form validations.</p>
+        </div>
+
+        <div class="project-item">
+            <img src="{% static 'main/images/animation.jpg' %}" alt="Animation" class="project-img">
+            <p> <strong>Animation</strong> – Designed animations using PowerPoint and Canva with custom motion paths and effects.</p>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}

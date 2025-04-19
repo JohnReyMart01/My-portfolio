@@ -1,0 +1,562 @@
+/* General Reset and Base Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #D1E8E2;
+    color: #19747E;
+}
+
+nav.custom-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: #19747E;
+    box-shadow: none;
+}
+
+
+/* Adjust logo size */
+nav .brand-logo {
+    font-size: 1.8rem; /* Adjust text size if it's text */
+    height: 60px; /* Adjust height if it's an image */
+    line-height: 60px; /* Align vertically */
+}
+
+/* If the logo is an image */
+nav .brand-logo img {
+    height: 65px; /* or any size you want */
+    width: 150px;  /* maintains aspect ratio */
+}
+
+
+.sidenav {
+    background-color: #A9D6E5;
+}
+
+.sidenav li a {
+    color: #19747E !important;
+}
+
+main {
+    padding: 20px;
+}
+
+.custom-footer {
+    background-color: #19747E;
+}
+
+.custom-footer-container {
+    padding: 20px 0;
+}
+
+.social-networks a {
+    margin: 0 10px;
+    font-size: 20px;
+    transition: transform 0.2s ease;
+}
+
+.social-networks a:hover {
+    transform: scale(1.2);
+    color: #A9D6E5 !important;
+}
+
+footer p {
+    margin: 0;
+    color: #E2E2E2;
+}
+
+/* Optional button styling */
+.btn-custom {
+    background-color: #A9D6E5;
+    color: #19747E;
+    font-weight: 600;
+}
+
+.btn-custom:hover {
+    background-color: #19747E;
+    color: #fff;
+}
+
+/* Hero Section */
+/* Make hero section fill the entire viewport */
+.hero {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D1E8E2;
+    padding: 0 20px; /* Padding for smaller screens */
+}
+
+/* Ensure the container is responsive and neatly aligned */
+.hero-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Stack on smaller screens */
+}
+
+/* Hero Image */
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Add animation to the profile picture */
+.hero-image img.profile-pic {
+    width: 250px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px; /* Adjusted to create a rectangular shape */
+    border: 4px solid #19747E; /* Deep teal */
+    opacity: 0; /* Initially hidden */
+    transform: scale(0.8) rotate(10deg); /* Starts smaller and slightly rotated */
+    animation: fadeInProfilePic 1.2s ease-out forwards, moveUpDown 2s ease-in-out 1.2s infinite; /* Adds continuous movement */
+}
+
+/* Keyframes for profile picture initial animation */
+@keyframes fadeInProfilePic {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) rotate(10deg); /* Starts off small and rotated */
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.1) rotate(-5deg); /* Slightly scaled up and rotated */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0); /* Fully visible and reset to normal size */
+    }
+}
+
+/* Keyframes for continuous up and down movement */
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0); /* Starts at the original position */
+    }
+    50% {
+        transform: translateY(-10px); /* Moves up */
+    }
+    100% {
+        transform: translateY(0); /* Moves back to original position */
+    }
+}
+
+/* Add a hover effect to the profile picture */
+.hero-image img.profile-pic:hover {
+    transform: scale(1.1) rotate(5deg); /* Scale up and rotate on hover */
+    transition: all 0.3s ease;
+}
+
+/* Hero Text */
+.hero-text {
+    flex: 2;
+    max-width: 500px;
+    text-align: left;
+}
+
+.hero-text h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #19747E; /* Deep teal */
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    margin: 10px 0 20px;
+}
+
+.hero-text .btn {
+    margin-right: 10px;
+    background-color: #A9D6E5; /* Light sky blue */
+    color: #19747E; /* Deep teal */
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.hero-text .btn:hover {
+    background-color: #D1E8E2; /* Soft mint green */
+}
+
+/* Social Networks Styling */
+.social-networks a.fa {
+    font-size: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #D1E8E2; /* Soft mint green */
+    padding: 10px;
+    color: #D1E8E2; /* Soft mint green */
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin: 0 6px;
+    transition: all 0.3s ease-in-out;
+}
+
+.social-networks a.fa:hover {
+    background-color: #A9D6E5; /* Light sky blue */
+    border: 2px solid #A9D6E5; /* Light sky blue */
+    transform: scale(1.1); /* Smooth pop effect on hover */
+}
+
+/* Section Headings */
+section h2 {
+    text-align: center;
+    font-size: 2.3rem;
+    color: #19747E; /* Deep teal */
+    margin: 50px 0 20px;
+    position: relative;
+}
+
+section h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #A9D6E5; /* Light sky blue */
+    margin: 10px auto 0;
+}
+
+/* About Me Section */
+.about-me {
+    background-color: #E2E2E2; /* Light gray */
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.about-me h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #19747E; /* Deep teal */
+}
+
+/* Swiper Card Styling */
+.swiper-slide.about-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* evenly distribute space */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    width: 100%;
+    max-width: 320px;
+    height: 500px; /* Fixed height */
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.swiper-slide.about-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Adjust the Image Size */
+.about-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.about-card img:hover {
+    transform: scale(1.1); /* Added hover animation */
+}
+
+/* Text Styling for About Section */
+.about-text {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-grow: 1;
+}
+
+.about-text h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #19747E; /* Deep teal */
+}
+
+.about-text p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+    max-width: 250px;
+    margin: 0 auto;
+    word-break: break-word;
+    flex-grow: 1; /* Fill remaining space */
+}
+
+/* Hobbies Section */
+.hobbies {
+    background-color: #E2E2E2; /* Light gray */
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hobbies h2 {
+    font-size: 2.5rem;
+    color: #19747E; /* Deep teal */
+    margin-bottom: 20px;
+}
+
+/* Swiper Wrapper Styling */
+.swiper.myHobbiesSwiper .swiper-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center; /* Ensures swiper cards are centered */
+}
+
+/* Equal height swiper cards */
+.swiper.myHobbiesSwiper .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    max-width: 280px;
+    height: 600px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.swiper.myHobbiesSwiper .swiper-slide:hover {
+    transform: translateY(-5px);
+}
+
+/* Center hobby-card and image */
+.hobby-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Ensures image and text are centered */
+    text-align: center;
+    height: 100%;
+}
+
+/* Image Styling */
+.hobby-card img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+    display: block; /* Ensures the image is treated as a block element */
+    margin-left: auto; /* Ensures image is aligned properly */
+    margin-right: auto; /* Ensures image is aligned properly */
+}
+
+.hobby-card img:hover {
+    transform: scale(1.1); /* Hover animation */
+}
+
+.hobby-card p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #19747E; /* Deep teal */
+    margin-top: auto;
+}
+
+/* Projects Section */
+.projects {
+    background-color: #E2E2E2; /* Light gray */
+    padding: 40px 0;
+}
+
+.projects-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.projects-header h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #19747E; /* Deep teal */
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.project-item {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+}
+
+.project-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    transition: transform 0.3s ease;
+}
+
+.project-img:hover {
+    transform: scale(1.1); /* Hover animation */
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Contact Section Styling */
+.contact {
+    padding: 50px 15px;
+    background-color: #E2E2E2; /* Light gray */
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2.5rem;
+    color: #19747E; /* Deep teal */
+    margin-bottom: 20px;
+}
+
+.contact p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.contact ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.contact ul li {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.contact ul li a {
+    color: #19747E; /* Deep teal */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact ul li a:hover {
+    text-decoration: underline;
+}
+
+.contact .btn {
+    margin-right: 10px;
+    background-color: #A9D6E5; /* Light sky blue */
+    color: #19747E; /* Deep teal */
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.contact .btn:hover {
+    background-color: #D1E8E2; /* Soft mint green */
+}
+
+.contact .btn:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(25, 116, 126, 0.5); /* Deep teal focus */
+}
+
+/* Footer Customization */
+footer.custom-footer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+footer .custom-footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+footer .white-text {
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.social-networks a.fa {
+    font-size: 25px;
+    border: 1px solid #D1E8E2; /* Soft mint green */
+    padding: 10px;
+    color: #D1E8E2; /* Soft mint green */
+    width: 45px;
+    height: 45px;
+    border-radius: 25px;
+    margin-right: 2px;
+    transition: all 0.5s ease-in;
+}
+
+.social-networks a.fa:hover {
+    background-color: #A9D6E5; /* Light sky blue */
+    border: 2px solid #A9D6E5; /* Light sky blue */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-image {
+        margin-bottom: 20px;
+    }
+
+    .hero-text .btn {
+        margin-bottom: 10px;
+    }
+}
+
+/* Container and general layout */
+.container {
+    max-width: 800px;
+    margin-top: 50px;
+    padding: 0 20px;
+}
+
+.container-fluid {
+    padding: 0 20px;
+}

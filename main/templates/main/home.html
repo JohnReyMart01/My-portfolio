@@ -1,0 +1,172 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container hero-container">
+        <!-- Left Side: Image -->
+        <div class="hero-image">
+            <img src="{% static 'main/images/jrm.png' %}" alt="John Rey Mart's Photo" class="profile-pic">
+        </div>
+
+        <!-- Right Side: Text Content -->
+        <div class="hero-text">
+            <h1>Hello, I'm <span style="color:#b47aff;">John Rey Mart Viernes</span></h1>
+            <p>3rd Year BSIT Student | Passionate Web Developer & Problem Solver</p>
+            <div class="buttons">
+                <a href="{% url 'project' %}" class="btn">View Projects</a>
+                <a href="{% url 'contact' %}" class="btn">Contact Me</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- About Me Carousel -->
+<section class="about-me" id="about">
+  <h2 class="section-title">About Me</h2>
+  <div class="swiper aboutMeSwiper">
+    <div class="swiper-wrapper">
+      <!-- Slide 1 -->
+      <div class="swiper-slide about-card">
+        <img src="{% static 'main/images/jrm.png' %}" alt="John Rey Mart's Photo">
+        <div class="about-text">
+          <h3>Hi, I'm John</h3>
+          <p>
+            I'm passionate about technology, continuous learning, and solving real-world problems through IT. I enjoy creating innovative web systems and staying updated with modern tech.
+          </p>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="swiper-slide about-card">
+        <img src="{% static 'main/images/nature.png' %}" alt="Nature">
+        <div class="about-text">
+          <h3>Nature Enthusiast</h3>
+          <p>
+            I love hiking, peaceful sceneries, and moments that refresh the soul and spark new ideas.
+          </p>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="swiper-slide about-card">
+        <img src="{% static 'main/images/sunset.png' %}" alt="Supportive Relationships">
+        <div class="about-text">
+          <h3>Support & Growth</h3>
+          <p>
+            I value deep connections and mutual growth. Life's better when you grow and achieve things together.
+          </p>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="swiper-slide about-card">
+        <img src="{% static 'main/images/hck.png' %}" alt="Dreaming Big">
+        <div class="about-text">
+          <h3>My Vision</h3>
+          <p>
+            To become a skilled and ethical hacker who uses technology to protect, empower, and innovate — uncovering vulnerabilities not to exploit, but to strengthen systems and safeguard the digital world.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hobbies Section -->
+<section class="hobbies" id="hobbies">
+  <h2>Hobbies</h2>
+  <div class="swiper myHobbiesSwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="hobby-card">
+          <img src="{% static 'main/images/aesunset.png' %}" alt="Sunset">
+          <p>Watching sunsets and reflecting on life</p>
+        </div>
+        <div class="hobby-card">
+          <img src="{% static 'main/images/op.png' %}" alt="Music">
+          <p>Watching Anime</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hobby-card">
+          <img src="{% static 'main/images/exp.png' %}" alt="Books">
+          <p>Experimenting program codes</p>
+        </div>
+        <div class="hobby-card">
+          <img src="{% static 'main/images/img.png' %}" alt="Chess">
+          <p>Playing Magic Chess: Go Go</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hobby-card">
+          <img src="{% static 'main/images/nature_walk.png' %}" alt="Fruits">
+          <p>Staying active outdoors and appreciating nature</p>
+        </div>
+        <div class="hobby-card">
+          <img src="{% static 'main/images/jog.png' %}" alt="Jogging">
+          <p>Jogging and working out to stay fit</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section class="projects" id="projects">
+    <div class="projects-header">
+        <h2>Projects</h2>
+        <p>Some of the school and personal projects I've worked on:</p>
+    </div>
+
+    <div class="projects-grid">
+        <div class="project-item">
+            <img src="{% static 'main/images/JolliPOS.png' %}" alt="POS System" class="project-img">
+            <p> <strong>Restaurant POS System</strong> – Cloud sync, smart features, real-time data, and mobile-friendly design.</p>
+        </div>
+
+        <div class="project-item">
+            <img src="{% static 'main/images/graphic_design.png' %}" alt="Digital Illustration" class="project-img">
+            <p> <strong>Graphic Design</strong> – Custom-made graphics and branding for events and projects.</p>
+        </div>
+
+        <div class="project-item">
+            <img src="{% static 'main/images/ps.png' %}" alt="Photoshop Logo Design" class="project-img">
+            <p> <strong>Photoshop Logo Design</strong> – Designed logos using Adobe tools for various platforms.</p>
+        </div>
+
+        <div class="project-item">
+            <img src="{% static 'main/images/web.png' %}" alt="Web Development" class="project-img">
+            <p> <strong>Web Development</strong> – Responsive websites using HTML, CSS, JavaScript, and Django backend.</p>
+        </div>
+
+        <div class="project-item">
+            <img src="{% static 'main/images/js.png' %}" alt="Java" class="project-img">
+            <p> <strong>JavaScript Projects</strong> – Interactive frontend experiences with modals and validation.</p>
+        </div>
+
+        <div class="project-item">
+            <img src="{% static 'main/images/animate.png' %}" alt="Animation" class="project-img">
+            <p> <strong>Animation</strong> – Engaging animations using adobe animate.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact" id="contact">
+    <h2>Contact Me</h2>
+    <p>
+        Let's connect! Whether it’s for collaboration, a project, or just a chat — feel free to reach out!
+    </p>
+    <ul>
+        <li>Email: <a href="mailto:johnreymart.viernes@gmail.com">johnreymart.viernes@gmail.com</a></li>
+        <li>Facebook: <a href="https://facebook.com/yourprofile" target="_blank">facebook.com/yourprofile</a></li>
+        <li>Location: Omod, Mininihon, Bayawan City</li>
+    </ul>
+    <a href="{% url 'contact' %}" class="btn">Send a Message</a>
+</section>
+
+{% endblock %}

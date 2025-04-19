@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Contact | John Rey Mart{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="center-align">Contact Me</h2>
+    <div class="row">
+        <div class="col s12 m6 offset-m3">
+            <div class="card darken-2">
+                <div class="card-content">
+                    <form method="POST" class="contact-form">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="center-align">
+                            <button type="submit" class="btn waves-effect waves-light">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="social-links center-align">
+        <p>Email: <a href="mailto:johnreymart@gmail.com" class="btn-flat">johnreymart@gmail.com</a></p>
+        <p>Facebook: <a href="https://facebook.com" target="_blank" class="btn-flat">facebook.com/John Rey Mart</a></p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Hobbies Section -->
+<section class="hobbies" id="hobbies">
+  <h2>Hobbies</h2>
+  <div class="swiper myHobbiesSwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="hobby-card">
+          <img src="{% static 'main/images/sunset.jpg' %}" alt="Sunset">
+          <p>Watching sunsets and relaxing by the sea</p>
+        </div>
+        <div class="hobby-card">
+          <img src="{% static 'main/images/op.png' %}" alt="Music">
+          <p>Watching Anime</p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hobby-card">
+          <img src="{% static 'main/images/exp.png' %}" alt="Books">
+          <p>Experimenting program codes</p>
+        </div>
+        <div class="hobby-card">
+          <img src="{% static 'main/images/img.png' %}" alt="Chess">
+          <p> Playing Magic Chess: Go Go </p>
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="hobby-card">
+          <img src="{% static 'main/images/nat.jpg' %}" alt="Fruits">
+          <p>Eating fruits, exploring nature, and staying fit</p>
+        </div>
+        <div class="hobby-card">
+          <img src="{% static 'main/images/jog.png' %}" alt="Jogging">
+          <p>Jogging</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
