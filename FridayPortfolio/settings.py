@@ -1,32 +1,21 @@
 import os
 from pathlib import Path
-import environ
+from decouple import config
+import dj_database_url
 
-# Define BASE_DIR
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Initialize environ
-env = environ.Env()
-# Load the secret.env file
-environ.Env.read_env(os.path.join(BASE_DIR, 'secret.env'))
+from decouple import Config, RepositoryEnv
 
-# Secret key and debug mode
-SECRET_KEY = env('DJANGO_SECRET_KEY')
-DEBUG = env.bool('DJANGO_DEBUG', default=True)
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'my-portfolio-d3my.onrender.com']
-DATABASES = {
-    'default': env.db('DATABASE_URL', default='sqlite:///db.sqlite3'),
-}
+env_path = BASE_DIR / 'secret.env'
+config = Config(repository=RepositoryEnv(str(env_path)))
 
+# Security
+SECRET_KEY = config('DJANGO_SECRET_KEY')
+DEBUG = config('DJANGO_DEBUG', cast=bool)
+ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
 
-
-# Static files
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'main' / 'static']
-STATIC_ROOT = BASE_DIR / 'staticfiles'
-
-
-# Installed apps
+# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -34,10 +23,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main',  # Your app
+    'main',
 ]
 
-# Middleware (required for admin and sessions to work)
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -48,11 +36,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# Templates (required for rendering admin and views)
+ROOT_URLCONF = 'FridayPortfolio.urls'
+WSGI_APPLICATION = 'FridayPortfolio.wsgi.application'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'main', 'templates')],
+        'DIRS': [BASE_DIR / 'main' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -64,6 +54,27 @@ TEMPLATES = [
         },
     },
 ]
+
+# Database
+DATABASES = {
+    'default': dj_database_url.config(default=config('DATABASE_URL', default='sqlite:///db.sqlite3'))
+}
+
+# Static files
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'main' / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Email
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')              # ✅ Read from .env
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')      # ✅ Read from .env
+
+
+# Logging
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -80,33 +91,4 @@ LOGGING = {
             'propagate': True,
         },
     },
-}
-
-# URL and WSGI configs
-ROOT_URLCONF = 'FridayPortfolio.urls'
-WSGI_APPLICATION = 'FridayPortfolio.wsgi.application'
-
-# Email configuration
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'johnreymartviernes@gmail.com'
-EMAIL_HOST_PASSWORD = 'digg urke zzys kavq'
-
-from decouple import config
-import dj_database_url
-
-SECRET_KEY = config('DJANGO_SECRET_KEY')
-DEBUG = config('DJANGO_DEBUG', cast=bool)
-ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
-
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-
-DATABASES = {
-    'default': dj_database_url.config(default=config('DATABASE_URL'))
 }
