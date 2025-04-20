@@ -8,8 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 from decouple import Config, RepositoryEnv
 
 env_path = BASE_DIR / 'secret.env'
-config = Config(repository=RepositoryEnv(str(env_path)))
-
+config = Config(repository=RepositoryEnv('/path/to/secret.env'))
 # Security
 SECRET_KEY = config('DJANGO_SECRET_KEY')
 DEBUG = config('DJANGO_DEBUG', cast=bool)
