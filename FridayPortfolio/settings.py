@@ -1,12 +1,14 @@
 import os
 from pathlib import Path
+from decouple import config
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 from decouple import Config, RepositoryEnv
 
 env_path = BASE_DIR / 'secret.env'
-config = Config(repository=RepositoryEnv(env_path))
+
 
 # Security
 SECRET_KEY = config('DJANGO_SECRET_KEY')
