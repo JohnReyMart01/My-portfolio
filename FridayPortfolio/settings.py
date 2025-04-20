@@ -91,6 +91,22 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = 'johnreymartviernes@gmail.com'
+EMAIL_HOST_PASSWORD = 'digg urke zzys kavq'
 
+from decouple import config
+import dj_database_url
+
+SECRET_KEY = config('DJANGO_SECRET_KEY')
+DEBUG = config('DJANGO_DEBUG', cast=bool)
+ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
+DATABASES = {
+    'default': dj_database_url.config(default=config('DATABASE_URL'))
+}

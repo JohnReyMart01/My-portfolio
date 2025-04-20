@@ -158,3 +158,5 @@ cython_debug/
 
 # Ignore secret.env file to protect sensitive data
 secret.env
+
+.env
