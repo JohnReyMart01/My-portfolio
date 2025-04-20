@@ -1,1 +1,1 @@
-web: gunicorn FridayPortfolio.wsgi --log-file -
+web: gunicorn FridayPortfolio.wsgi:application
