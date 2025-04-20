@@ -13,7 +13,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, 'secret.env'))
 # Secret key and debug mode
 SECRET_KEY = env('DJANGO_SECRET_KEY')
 DEBUG = env.bool('DJANGO_DEBUG', default=True)
-ALLOWED_HOSTS = ['my-portfolio-d3my.onrender.com', '127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'my-portfolio-d3my.onrender.com']
 DATABASES = {
     'default': env.db('DATABASE_URL', default='sqlite:///db.sqlite3'),
 }
