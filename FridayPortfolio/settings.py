@@ -1,24 +1,37 @@
 import os
-import environ
 from pathlib import Path
+import environ
 
+# Define BASE_DIR
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Initialize environ
 env = environ.Env()
+# Load the secret.env file
 environ.Env.read_env(os.path.join(BASE_DIR, 'secret.env'))
 
+# Secret key and debug mode
 SECRET_KEY = env('DJANGO_SECRET_KEY')
+DEBUG = env.bool('DJANGO_DEBUG', default=True)  # Reading DEBUG from env or default to True
 
-DEBUG = False
-ALLOWED_HOSTS = ['my-portfolio-dwy0.onrender.com', 'localhost', '127.0.0.1', '[::1]']
+ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['127.0.0.1', 'localhost', 'my-portfolio-dpyu.onrender.com'])
 
+# Database configuration
 DATABASES = {
-    'default': env.db(default=f'sqlite:///{os.path.join(BASE_DIR, "db.sqlite3")}')
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'main', 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+# Static files
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / 'main' / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
+# Installed apps
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -26,9 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main',
+    'main',  # Your app
 ]
 
+# Middleware (required for admin and sessions to work)
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -39,12 +53,11 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'FridayPortfolio.urls'
-
+# Templates (required for rendering admin and views)
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'main', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -56,30 +69,33 @@ TEMPLATES = [
         },
     },
 ]
-
-WSGI_APPLICATION = 'FridayPortfolio.wsgi.application'
-
-DATABASES = {
-    'default': env.db(),
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
 }
 
+# URL and WSGI configs
+ROOT_URLCONF = 'FridayPortfolio.urls'
+WSGI_APPLICATION = 'FridayPortfolio.wsgi.application'
+
+# Email configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'johnreymartviernes@gmail.com'
-EMAIL_HOST_PASSWORD = 'digg urke zzys kavq'  # This is the app password you just generated
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
-AUTH_PASSWORD_VALIDATORS = [
-    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},
-    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
-]
-
-LANGUAGE_CODE = 'en-us'
-TIME_ZONE = 'UTC'
-USE_I18N = True
-USE_TZ = True
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

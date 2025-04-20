@@ -5,7 +5,7 @@ __pycache__/
 *.env
 .DS_Store
 secret.env
-.env
+secret.env
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -114,7 +114,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
+secret.env
 .venv
 env/
 venv/
@@ -156,5 +156,5 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
-# Ignore .env file to protect sensitive data
-.env
+# Ignore secret.env file to protect sensitive data
+secret.env
