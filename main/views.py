@@ -1,22 +1,28 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.core.mail import send_mail
+from .forms import ContactForm
 
-# Create your views here.
-from django.shortcuts import render
-
+# Home Page View
 def home(request):
     return render(request, 'main/home.html')
 
-from django.shortcuts import render
-
+# About Page View
 def about(request):
     return render(request, 'main/about.html')
 
-from .forms import ContactForm
+# Projects Page View
+def project(request):
+    return render(request, 'main/project.html')
 
-from django.shortcuts import render, redirect
-from .forms import ContactForm
-from django.core.mail import send_mail
+# Success Page View
+def success_view(request):
+    return render(request, 'main/success.html')
 
+# Hobbies Page View
+def hobbies(request):
+    return render(request, 'main/hobbies.html')
+
+# Contact Form View
 def contact_view(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -31,25 +37,14 @@ def contact_view(request):
             body = f"Email: {email}\n\nMessage:\n{message}"
 
             send_mail(
-                subject,         # Subject of the email
-                body,            # Body content of the email
-                email,           # Sender's email address (user's email)
-                ['yourgmail@gmail.com'],  # Replace with your email to receive messages
+                subject,
+                body,
+                email,
+                ['johnreymartviernes@gmail.com'],  # Replace with your own email
             )
 
-            return redirect('success')  # Redirect to the success page after form submission
+            return redirect('success')
     else:
-        form = ContactForm()  # If it's a GET request, show an empty form
+        form = ContactForm()
 
     return render(request, 'main/form.html', {'form': form})
-
-from django.shortcuts import render
-
-def project(request):
-    return render(request, 'main/project.html')
-
-def success_view(request):
-    return render(request, 'main/success.html')
-
-def hobbies(request):
-    return render(request, 'main/hobbies.html')
