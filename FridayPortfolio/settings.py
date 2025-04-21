@@ -1,14 +1,8 @@
 import os
 from pathlib import Path
 from decouple import config
-import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-from decouple import Config, RepositoryEnv
-
-env_path = BASE_DIR / 'secret.env'
-
 
 # Security
 SECRET_KEY = config('DJANGO_SECRET_KEY')
@@ -62,23 +56,18 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-import os
+
 # Static files
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [
-    BASE_DIR / "main" / "static",
-]
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Directory for collected static files
 
 # Email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')              # ✅ Read from .env
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')      # ✅ Read from .env
-
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')  # Read from .env
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')  # Read from .env
 
 # Logging
 LOGGING = {
