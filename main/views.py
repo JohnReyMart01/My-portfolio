@@ -3,9 +3,13 @@ from django.core.mail import send_mail
 from .forms import ContactForm
 
 # Home Page View
-def home(request):
-    return render(request, 'main/home.html')
+from django.utils import timezone
 
+def home(request):
+    context = {
+        'now': timezone.now(),
+    }
+    return render(request, 'main/home.html', context)
 # About Page View
 def about(request):
     return render(request, 'main/about.html')
