@@ -4,12 +4,12 @@ from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Security
+# SECURITY
 SECRET_KEY = config('DJANGO_SECRET_KEY')
 DEBUG = config('DJANGO_DEBUG', cast=bool)
 ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
 
-# Application definition
+# APPLICATIONS
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -31,7 +31,6 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'FridayPortfolio.urls'
-WSGI_APPLICATION = 'FridayPortfolio.wsgi.application'
 
 TEMPLATES = [
     {
@@ -49,7 +48,9 @@ TEMPLATES = [
     },
 ]
 
-# Database
+WSGI_APPLICATION = 'FridayPortfolio.wsgi.application'
+
+# DATABASE
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -57,19 +58,24 @@ DATABASES = {
     }
 }
 
-# Static files
+# STATIC FILES
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Directory for collected static files
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # Dev static
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')    # For collectstatic
 
-# Email
+# MEDIA FILES (optional)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# EMAIL
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')  # Read from .env
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')  # Read from .env
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
-# Logging
+# LOGGING
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
