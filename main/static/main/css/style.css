@@ -164,6 +164,18 @@ nav ul a:hover:after {
     transition: all 0.3s ease;
     animation: fadeInUp 1s ease-out 0.6s both;
 }
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.hero-buttons a.btn {
+  flex: 1 1 45%; /* allow buttons to shrink and wrap */
+  min-width: 130px;
+  text-align: center;
+}
 
 .hero-buttons .btn:hover {
     transform: translateY(-3px);
@@ -702,20 +714,6 @@ nav ul a:hover:after {
     .success-section .card-panel {
         padding: 2rem;
     }
-}
-@media (max-width: 400px) {
-  .hero-buttons {
-    display: flex;
-    flex-direction: column; /* stack buttons */
-    gap: 10px;
-    align-items: stretch;
-  }
-
-  .hero-buttons a.btn {
-    width: 100%; /* make them full width */
-    font-size: 16px;
-    text-align: center;
-  }
 }
 
  .icon-container {
