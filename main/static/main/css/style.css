@@ -165,17 +165,11 @@ nav ul a:hover:after {
     animation: fadeInUp 1s ease-out 0.6s both;
 }
 .hero-buttons a.btn {
-  font-size: 18px;
+  font-size: 14px;
   font-size: clamp(14px, 2vw, 18px);
 }
 
-@media (max-width: 768px) {
-  .hero-buttons a.btn {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .hero-buttons a.btn {
     font-size: 14px;
   }
