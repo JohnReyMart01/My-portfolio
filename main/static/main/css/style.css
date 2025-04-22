@@ -703,7 +703,7 @@ nav ul a:hover:after {
         padding: 2rem;
     }
 }
-@media (max-width: 600px) {
+@media (max-width: 400px) {
   .hero-buttons {
     display: flex;
     flex-direction: column; /* stack buttons */
