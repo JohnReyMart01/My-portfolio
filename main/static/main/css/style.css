@@ -657,7 +657,7 @@ nav ul a:hover:after {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .hero-section {
         padding: 80px 0;
         text-align: center;
