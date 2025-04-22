@@ -703,6 +703,20 @@ nav ul a:hover:after {
         padding: 2rem;
     }
 }
+@media (max-width: 600px) {
+  .hero-buttons {
+    display: flex;
+    flex-direction: column; /* stack buttons */
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .hero-buttons a.btn {
+    width: 100%; /* make them full width */
+    font-size: 16px;
+    text-align: center;
+  }
+}
 
  .icon-container {
         height: 60px;
