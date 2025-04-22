@@ -166,7 +166,7 @@ nav ul a:hover:after {
 }
 .hero-buttons a.btn {
   font-size: 12px;
-  font-size: clamp(14px, 2vw, 18px);
+  font-size: clamp(12px, 2vw, 16px);
 }
 
 @media (max-width: 600px) {
