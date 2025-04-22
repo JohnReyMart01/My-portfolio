@@ -164,17 +164,21 @@ nav ul a:hover:after {
     transition: all 0.3s ease;
     animation: fadeInUp 1s ease-out 0.6s both;
 }
-.hero-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
+.hero-buttons a.btn {
+  font-size: 18px;
+  font-size: clamp(14px, 2vw, 18px);
 }
 
-.hero-buttons a.btn {
-  flex: 1 1 45%; /* allow buttons to shrink and wrap */
-  min-width: 130px;
-  text-align: center;
+@media (max-width: 768px) {
+  .hero-buttons a.btn {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-buttons a.btn {
+    font-size: 14px;
+  }
 }
 
 .hero-buttons .btn:hover {
