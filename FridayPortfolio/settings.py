@@ -6,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY
 SECRET_KEY = config('DJANGO_SECRET_KEY')
-DEBUG = config('DJANGO_DEBUG', cast=bool)
+DEBUG = False
 ALLOWED_HOSTS = config('ALLOWED_HOSTS').split(',')
 
 # APPLICATIONS
@@ -22,6 +22,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # ✅ Added WhiteNoise
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -60,8 +61,11 @@ DATABASES = {
 
 # STATIC FILES
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # Dev static
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')    # For collectstatic
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # used by collectstatic
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # your dev static folder
+
+# ✅ WhiteNoise static files optimization
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # MEDIA FILES (optional)
 MEDIA_URL = '/media/'

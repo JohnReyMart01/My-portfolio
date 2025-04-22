@@ -4,169 +4,295 @@
 {% block content %}
 
 <!-- Hero Section -->
-<section class="hero">
-    <div class="container hero-container">
-        <!-- Left Side: Image -->
-        <div class="hero-image">
-            <img src="{% static 'main/images/jrm.png' %}" alt="John Rey Mart's Photo" class="profile-pic">
-        </div>
-
-        <!-- Right Side: Text Content -->
-        <div class="hero-text">
-            <h1>Hello, I'm <span style="color:#b47aff;">John Rey Mart Viernes</span></h1>
-            <p>3rd Year BSIT Student | Passionate Web Developer & Problem Solver</p>
-            <div class="buttons">
-                <a href="{% url 'project' %}" class="btn">View Projects</a>
-                <a href="{% url 'contact' %}" class="btn">Contact Me</a>
+<section class="hero-section">
+    <div class="container">
+        <div class="row valign-wrapper">
+            <div class="col s12 m6">
+                <div class="hero-content">
+                    <h1 class="hero-title">Hello, I'm <span class="highlight">John Rey Mart Viernes</span></h1>
+                    <p class="hero-subtitle">3rd Year BSIT Student | Passionate Web Developer & Problem Solver</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn waves-effect waves-light btn-large">
+                            <i class="fas fa-eye left"></i> View Projects
+                        </a>
+                        <a href="{% url 'contact' %}" class="btn waves-effect waves-light btn-large">
+                            <i class="fas fa-paper-plane left"></i> Contact Me
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="hero-image-container">
+                    <div class="floating-profile">
+                        <div class="profile-frame">
+                            <img src="{% static 'main/images/jrm.png' %}" alt="John Rey Mart" class="profile-image">
+                            <div class="frame-border"></div>
+                            <div class="glow-effect"></div>
+                        </div>
+                        <div class="floating-dots dot-1"></div>
+                        <div class="floating-dots dot-2"></div>
+                        <div class="floating-dots dot-3"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
+<!-- About Section -->
+<section id="about" class="section about-section scrollspy">
+    <div class="container">
+        <h2 class="center-align section-title">About Me</h2>
+        <div class="row">
+            <div class="col s12 m6 l5">
+                <div class="about-image-container">
+                    <img src="{% static 'main/images/jrm.png' %}" alt="About Me" class="responsive-img about-image">
+                </div>
+            </div>
+            <div class="col s12 m6 l7">
+                <div class="about-content">
+                    <h3 class="about-heading">Hi, I'm John</h3>
+                    <p class="about-text">I'm passionate about technology, continuous learning, and solving real-world problems through IT. I enjoy creating innovative web systems and staying updated with modern tech.</p>
 
-<!-- About Me Carousel -->
-<section class="about-me" id="about">
-  <h2 class="section-title">About Me</h2>
-  <div class="swiper aboutMeSwiper">
-    <div class="swiper-wrapper">
-      <!-- Slide 1 -->
-      <div class="swiper-slide about-card">
-        <img src="{% static 'main/images/jrm.png' %}" alt="John Rey Mart's Photo">
-        <div class="about-text">
-          <h3>Hi, I'm John</h3>
-          <p>
-            I'm passionate about technology, continuous learning, and solving real-world problems through IT. I enjoy creating innovative web systems and staying updated with modern tech.
-          </p>
-        </div>
-      </div>
+                    <div class="row about-features">
+                        <div class="col s12 m6">
+                            <div class="feature-card hoverable">
+                                <i class="fas fa-mountain feature-icon"></i>
+                                <h4>Nature Enthusiast</h4>
+                                <p>I love hiking, peaceful sceneries, and moments that refresh the soul and spark new ideas.</p>
+                            </div>
+                        </div>
 
-      <!-- Slide 2 -->
-      <div class="swiper-slide about-card">
-        <img src="{% static 'main/images/nature.png' %}" alt="Nature">
-        <div class="about-text">
-          <h3>Nature Enthusiast</h3>
-          <p>
-            I love hiking, peaceful sceneries, and moments that refresh the soul and spark new ideas.
-          </p>
-        </div>
-      </div>
+                        <div class="col s12 m6">
+                            <div class="feature-card hoverable">
+                                <i class="fas fa-users feature-icon"></i>
+                                <h4>Support & Growth</h4>
+                                <p>I value deep connections and mutual growth. Life's better when you grow and achieve things together.</p>
+                            </div>
+                        </div>
 
-      <!-- Slide 3 -->
-      <div class="swiper-slide about-card">
-        <img src="{% static 'main/images/sunset.png' %}" alt="Supportive Relationships">
-        <div class="about-text">
-          <h3>Support & Growth</h3>
-          <p>
-            I value deep connections and mutual growth. Life's better when you grow and achieve things together.
-          </p>
-        </div>
-      </div>
+                        <div class="col s12 m6">
+                            <div class="feature-card hoverable">
+                                <i class="fas fa-code feature-icon"></i>
+                                <h4>Web Development</h4>
+                                <p>Creating responsive websites with modern technologies and frameworks.</p>
+                            </div>
+                        </div>
 
-      <!-- Slide 4 -->
-      <div class="swiper-slide about-card">
-        <img src="{% static 'main/images/hck.png' %}" alt="Dreaming Big">
-        <div class="about-text">
-          <h3>My Vision</h3>
-          <p>
-            To become a skilled and ethical hacker who uses technology to protect, empower, and innovate — uncovering vulnerabilities not to exploit, but to strengthen systems and safeguard the digital world.
-          </p>
+                        <div class="col s12 m6">
+                            <div class="feature-card hoverable">
+                                <i class="fas fa-shield-alt feature-icon"></i>
+                                <h4>My Vision</h4>
+                                <p>To become a skilled ethical hacker who strengthens systems and safeguards the digital world.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- Hobbies Section -->
-<section class="hobbies" id="hobbies">
-  <h2>Hobbies</h2>
-  <div class="swiper myHobbiesSwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <div class="hobby-card">
-          <img src="{% static 'main/images/aesunset.png' %}" alt="Sunset">
-          <p>Watching sunsets and reflecting on life</p>
+<section id="hobbies" class="section hobbies-section scrollspy grey lighten-4">
+    <div class="container">
+        <h2 class="center-align section-title">My Hobbies</h2>
+        <div class="row">
+            <div class="col s12 m6 l3">
+                <div class="hobby-card hoverable">
+                    <div class="hobby-image-container">
+                        <img src="{% static 'main/images/aesunset.png' %}" alt="Sunset" class="responsive-img hobby-image">
+                    </div>
+                    <div class="hobby-content">
+                        <i class="fas fa-sun hobby-icon"></i>
+                        <h4>Watching Sunsets</h4>
+                        <p>Reflecting on life while enjoying beautiful sunsets</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m6 l3">
+                <div class="hobby-card hoverable">
+                    <div class="hobby-image-container">
+                        <img src="{% static 'main/images/op.png' %}" alt="Anime" class="responsive-img hobby-image">
+                    </div>
+                    <div class="hobby-content">
+                        <i class="fas fa-tv hobby-icon"></i>
+                        <h4>Watching Anime</h4>
+                        <p>Enjoying various anime series in my free time</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m6 l3">
+                <div class="hobby-card hoverable">
+                    <div class="hobby-image-container">
+                        <img src="{% static 'main/images/exp.png' %}" alt="Coding" class="responsive-img hobby-image">
+                    </div>
+                    <div class="hobby-content">
+                        <i class="fas fa-code hobby-icon"></i>
+                        <h4>Coding Experiments</h4>
+                        <p>Trying out new programming concepts and techniques</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col s12 m6 l3">
+                <div class="hobby-card hoverable">
+                    <div class="hobby-image-container">
+                        <img src="{% static 'main/images/jog.png' %}" alt="Jogging" class="responsive-img hobby-image">
+                    </div>
+                    <div class="hobby-content">
+                        <i class="fas fa-running hobby-icon"></i>
+                        <h4>Jogging</h4>
+                        <p>Staying active and maintaining fitness</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="hobby-card">
-          <img src="{% static 'main/images/op.png' %}" alt="Music">
-          <p>Watching Anime</p>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="hobby-card">
-          <img src="{% static 'main/images/exp.png' %}" alt="Books">
-          <p>Experimenting program codes</p>
-        </div>
-        <div class="hobby-card">
-          <img src="{% static 'main/images/img.png' %}" alt="Chess">
-          <p>Playing Magic Chess: Go Go</p>
-        </div>
-      </div>
-      <div class="swiper-slide">
-        <div class="hobby-card">
-          <img src="{% static 'main/images/nature_walk.png' %}" alt="Fruits">
-          <p>Staying active outdoors and appreciating nature</p>
-        </div>
-        <div class="hobby-card">
-          <img src="{% static 'main/images/jog.png' %}" alt="Jogging">
-          <p>Jogging and working out to stay fit</p>
-        </div>
-      </div>
     </div>
-  </div>
 </section>
 
 <!-- Projects Section -->
-<section class="projects" id="projects">
-    <div class="projects-header">
-        <h2>Projects</h2>
-        <p>Some of the school and personal projects I've worked on:</p>
-    </div>
+<section id="projects" class="section projects-section scrollspy">
+    <div class="container">
+        <h2 class="center-align section-title">My Projects</h2>
+        <p class="center-align section-subtitle">Some of the school and personal projects I've worked on:</p>
 
-    <div class="projects-grid">
-        <div class="project-item">
-            <img src="{% static 'main/images/pos.png' %}" alt="POS System" class="project-img">
-            <p> <strong>Restaurant POS System</strong> – Cloud sync, smart features, real-time data, and mobile-friendly design.</p>
-        </div>
+        <div class="row">
+            <div class="col s12 m6 l4">
+                <div class="card project-card hoverable">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img src="{% static 'main/images/pos.png' %}" alt="POS System" class="activator">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator">Restaurant POS System<i class="material-icons right">more_vert</i></span>
+                        <p>Cloud sync, smart features, real-time data</p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title">POS System Details<i class="material-icons right">close</i></span>
+                        <p>Full restaurant management system with inventory tracking, employee management, and real-time reporting.</p>
+                    </div>
+                </div>
+            </div>
 
-        <div class="project-item">
-            <img src="{% static 'main/images/graphic_design.png' %}" alt="Digital Illustration" class="project-img">
-            <p> <strong>Graphic Design</strong> – Custom-made graphics and branding for events and projects.</p>
-        </div>
+            <div class="col s12 m6 l4">
+                <div class="card project-card hoverable">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img src="{% static 'main/images/graphic_design.png' %}" alt="Graphic Design" class="activator">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator">Graphic Design<i class="material-icons right">more_vert</i></span>
+                        <p>Custom graphics and branding</p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title">Design Projects<i class="material-icons right">close</i></span>
+                        <p>Created logos, banners, and marketing materials for various clients and personal projects.</p>
+                    </div>
+                </div>
+            </div>
 
-        <div class="project-item">
-            <img src="{% static 'main/images/ps.png' %}" alt="Photoshop Logo Design" class="project-img">
-            <p> <strong>Photoshop Logo Design</strong> – Designed logos using Adobe tools for various platforms.</p>
-        </div>
+            <div class="col s12 m6 l4">
+                <div class="card project-card hoverable">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img src="{% static 'main/images/web.png' %}" alt="Web Development" class="activator">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator">Web Development<i class="material-icons right">more_vert</i></span>
+                        <p>Responsive websites with Django</p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title">Web Projects<i class="material-icons right">close</i></span>
+                        <p>Developed multiple responsive websites using HTML, CSS, JavaScript, and Django backend.</p>
+                    </div>
+                </div>
+            </div>
 
-        <div class="project-item">
-            <img src="{% static 'main/images/web.png' %}" alt="Web Development" class="project-img">
-            <p> <strong>Web Development</strong> – Responsive websites using HTML, CSS, JavaScript, and Django backend.</p>
-        </div>
+            <div class="col s12 m6 l4">
+                <div class="card project-card hoverable">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img src="{% static 'main/images/ps.png' %}" alt="Photoshop" class="activator">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator">Photoshop Design<i class="material-icons right">more_vert</i></span>
+                        <p>Logo and graphic design</p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title">Design Work<i class="material-icons right">close</i></span>
+                        <p>Created professional logos and graphics using Adobe Photoshop for various platforms.</p>
+                    </div>
+                </div>
+            </div>
 
-        <div class="project-item">
-            <img src="{% static 'main/images/js.png' %}" alt="Java" class="project-img">
-            <p> <strong>JavaScript Projects</strong> – Interactive frontend experiences with modals and validation.</p>
-        </div>
+            <div class="col s12 m6 l4">
+                <div class="card project-card hoverable">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img src="{% static 'main/images/js.png' %}" alt="JavaScript" class="activator">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator">JavaScript Projects<i class="material-icons right">more_vert</i></span>
+                        <p>Interactive frontend experiences</p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title">JS Development<i class="material-icons right">close</i></span>
+                        <p>Built interactive web applications with modals, form validation, and dynamic content.</p>
+                    </div>
+                </div>
+            </div>
 
-        <div class="project-item">
-            <img src="{% static 'main/images/animate.png' %}" alt="Animation" class="project-img">
-            <p> <strong>Animation</strong> – Engaging animations using adobe animate.</p>
+            <div class="col s12 m6 l4">
+                <div class="card project-card hoverable">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img src="{% static 'main/images/animate.png' %}" alt="Animation" class="activator">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator">Animation<i class="material-icons right">more_vert</i></span>
+                        <p>Adobe Animate creations</p>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title">Animation Work<i class="material-icons right">close</i></span>
+                        <p>Created engaging animations and motion graphics using Adobe Animate.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Contact Section -->
-<section class="contact" id="contact">
-    <h2>Contact Me</h2>
-    <p>
-        Let's connect! Whether it’s for collaboration, a project, or just a chat — feel free to reach out!
-    </p>
-    <ul>
-        <li>Email: <a href="mailto:johnreymart.viernes@gmail.com">johnreymart.viernes@gmail.com</a></li>
-        <li>Facebook: <a href="https://facebook.com/yourprofile" target="_blank">facebook.com/yourprofile</a></li>
-        <li>Location: Omod, Mininihon, Bayawan City</li>
-    </ul>
-    <a href="{% url 'contact' %}" class="btn">Send a Message</a>
+<!-- Contact CTA Section -->
+<section class="section contact-cta blue darken-2 white-text">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 center-align">
+                <h3>Ready to start a project?</h3>
+                <a href="{% url 'contact' %}" class="btn-large waves-effect waves-light">Get In Touch</a>
+            </div>
+        </div>
+    </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const logo = document.getElementById('animated-logo');
+    const nav = document.querySelector('.custom-nav');
+
+    // Click animation
+    logo.addEventListener('click', function() {
+        this.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            this.style.transform = 'scale(1.05)';
+        }, 150);
+    });
+
+    // Scroll animation
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+});
+</script>
 
 {% endblock %}

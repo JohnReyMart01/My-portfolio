@@ -1,1 +1,1 @@
-web: waitress FridayPortfolio.wsgi:application
+web: gunicorn main.wsgi:application

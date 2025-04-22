@@ -4,115 +4,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}John Rey Mart Viernes{% endblock %}</title>
+    <title>{% block title %}John Rey Mart Viernes | Portfolio{% endblock %}</title>
     <link rel="shortcut icon" href="{% static 'main/images/logo.png' %}">
+
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Materialize CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
 
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
-
 
     {% block head %}{% endblock %}
 </head>
 <body>
+    <!-- Navbar -->
+    <div class="navbar-fixed">
+        <nav class="custom-nav">
+            <div class="nav-wrapper container">
+                <!-- Logo -->
+                <a href="{% url 'home' %}" class="brand-logo">
+                    <img src="{% static 'main/images/logo.png' %}" alt="Logo" class="logo-img">
+                </a>
 
-<!-- Navbar -->
-<nav class="custom-navbar">
-  <div class="nav-wrapper">
-    <!-- Brand logo with image -->
-    <a href="#!" class="brand-logo">
-      <img src="{% static 'main/images/logo.png' %}" alt="My Portfolio Logo" class="logo">
-    </a>
+                <!-- Mobile Menu Button -->
+                <a href="#" data-target="mobile-nav" class="sidenav-trigger left">
+                    <i class="fas fa-bars"></i>
+                </a>
 
-    <!-- Menu toggle icon for mobile -->
-    <a href="#" data-target="mobile-demo" class="sidenav-trigger">
-      <i class="material-icons">&#9776;</i>
-    </a>
-
-    <ul class="right hide-on-med-and-down">
-      <li><a href="{% url 'home' %}">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#hobbies">Hobbies</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-
-
-<!-- Sidenav for mobile -->
-<ul class="sidenav" id="mobile-demo">
-  <li><a href="{% url 'home' %}">Home</a></li>
-  <li><a href="#about">About</a></li>
-  <li><a href="#hobbies">Hobbies</a></li>
-  <li><a href="#projects">Projects</a></li>
-  <li><a href="#contact">Contact</a></li>
-</ul>
-
-
-<main>
-  {% block content %}{% endblock %}
-</main>
-
-<!-- Footer -->
-<footer class="page-footer custom-footer">
-  <div class="custom-footer-container container">
-    <div class="row">
-      <div class="col s12 center-align">
-        <div class="social-networks" style="margin-bottom: 1rem;">
-          <a href="https://www.facebook.com/profile.php?id=61558458380814" class="fa fa-facebook white-text"></a>
-          <a href="https://x.com/" class="fa fa-twitter white-text"></a>
-          <a href="https://www.reddit.com/?rdt=43954" class="fa fa-reddit white-text"></a>
-          <a href="https://www.linkedin.com/" class="fa fa-linkedin white-text"></a>
-        </div>
-        <p class="white-text">&copy; {{ now|date:"Y" }} John Rey Mart Viernes. All rights reserved.</p>
-      </div>
+                <!-- Desktop Menu -->
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#hobbies" class="nav-link">Hobbies</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
     </div>
-  </div>
-</footer>
 
-<!-- Scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="{% static 'main/js/scripts.js' %}"></script>
-<script src="https://fonts.googleapis.com/icon?family=Material+Icons"></script>
-<script>
-  var aboutSwiper = new Swiper(".aboutMeSwiper", {
-    loop: true,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-    },
-  });
+    <!-- Mobile Menu -->
+    <ul class="sidenav" id="mobile-nav">
+        <li><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#hobbies" class="nav-link">Hobbies</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+    </ul>
 
-  var hobbySwiper = new Swiper(".myHobbiesSwiper", {
-    loop: true,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-    },
-  });
+    <main>
+        {% block content %}{% endblock %}
+    </main>
 
-  document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.sidenav');
-    M.Sidenav.init(elems);
-  });
-</script>
+    <!-- Footer -->
+    <footer class="page-footer custom-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 center-align">
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61558458380814" class="white-text tooltipped" data-position="top" data-tooltip="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://x.com/" class="white-text tooltipped" data-position="top" data-tooltip="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.reddit.com/?rdt=43954" class="white-text tooltipped" data-position="top" data-tooltip="Reddit"><i class="fab fa-reddit"></i></a>
+                        <a href="https://www.linkedin.com/" class="white-text tooltipped" data-position="top" data-tooltip="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <p class="white-text">&copy; {% now "Y" %} John Rey Mart Viernes. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        // Initialize components
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile sidenav
+            var elems = document.querySelectorAll('.sidenav');
+            M.Sidenav.init(elems);
+
+            // Tooltips
+            var tooltips = document.querySelectorAll('.tooltipped');
+            M.Tooltip.init(tooltips);
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+    {% block scripts %}{% endblock %}
 </body>
 </html>

@@ -1,8 +1,31 @@
 {% extends 'main/base.html' %}
 
+{% block title %}Message Sent | John Rey Mart{% endblock %}
+
 {% block content %}
-<div class="message-container">
-    <h2>Message sent successfully!</h2>
-    <p>Thank you for reaching out. I'll get back to you soon.</p>
-</div>
+<section class="section success-section valign-wrapper">
+    <div class="container center-align">
+        <div class="card-panel green lighten-4" style="max-width: 500px; margin: 0 auto;">
+            <i class="material-icons large green-text">check_circle</i>
+            <h4>Message Sent Successfully!</h4>
+            <p>Thank you for reaching out. I'll get back to you soon.</p>
+            <div class="section">
+                <a href="{% url 'home' %}" class="btn green waves-effect">
+                    <i class="material-icons left">home</i> Return Home
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Auto-show the success message when page loads
+        M.toast({
+            html: 'Message sent successfully!',
+            displayLength: 4000,
+            classes: 'green'
+        });
+    });
+</script>
 {% endblock %}
